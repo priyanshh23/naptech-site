@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M20,20 L80,20 L60,80 L40,80 Z" fill="#183693"/>
+  <path d="M40,20 L60,20 L80,80 L20,80 Z" fill="#183693" opacity="0.8"/>
+  <text x="50" y="95" font-family="Arial" font-size="12" text-anchor="middle" fill="#183693">MARUTI SUZUKI</text>
+</svg>

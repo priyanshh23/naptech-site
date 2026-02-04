@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team & Organization - Naptech Precision Engineering</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        .org-chart-container {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 900px;
+        }
+
+        /* Tree Lines */
+        .org-node {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 143, 62, 0.1);
+            min-width: 220px;
+            z-index: 2;
+        }
+
+        .org-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-light);
+        }
+
+        .org-node h3,
+        .org-node h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .org-node p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Specific node styles */
+        .org-node.root {
+            background: linear-gradient(135deg, #008f3e 0%, #00662b 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 25px -5px rgba(0, 143, 62, 0.4);
+        }
+
+        .org-node.root h3,
+        .org-node.root p {
+            color: white;
+        }
+
+        .org-node.branch-head {
+            border-top: 4px solid var(--primary-color);
+        }
+
+        /* Connectors */
+        .org-level {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            position: relative;
+            padding-top: 3rem;
+        }
+
+        .org-level::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 3rem;
+            background: #cbd5e1;
+            transform: translateX(-50%);
+        }
+
+        .branch-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Horizontal connecting line for branches */
+        .org-level>.branch-group::before {
+            content: '';
+            position: absolute;
+            top: -3rem;
+            /* Connects to the main horizontal line */
+            left: 50%;
+            width: 2px;
+            height: 3rem;
+            background: #cbd5e1;
+        }
+
+        /* Complex connector logic for top geometric tree */
+        .tree-connector {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3rem;
+            /* This div will hold the horizontal bar */
+        }
+
+        /* The horizontal bar connecting all branches */
+        .horizontal-bar {
+            position: absolute;
+            top: 0;
+            height: 2px;
+            background: #cbd5e1;
+            /* Width and Position set inline or via specific classes */
+        }
+
+        /* Vertical lines between stacked nodes in a branch */
+        .branch-group .org-node+.org-node {
+            margin-top: 2rem;
+        }
+
+        .branch-group .org-node+.org-node::before {
+            content: '';
+            position: absolute;
+            top: -2.1rem;
+            /* extends up to previous node */
+            left: 50%;
+            width: 2px;
+            height: 2.1rem;
+            background: #cbd5e1;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-md" style="background-color: var(--primary-color); color: var(--white); text-align: center;">
+            <div class="container">
+                <h1 style="color: var(--white); margin-bottom: 0.5rem;">Leadership & Team</h1>
+                <p style="opacity: 0.9;">Structure designed for efficiency and quality</p>
+            </div>
+        </section>
+
+        <!-- Org Chart -->
+        <section class="py-lg fade-in">
+            <div class="container org-chart-container">
+                <div class="org-chart">
+
+                    <!-- Level 1: Plant Head -->
+                    <div class="org-node root">
+                        <h3 style="font-size: 1.5rem;">Nitin Mittal</h3>
+                        <p style="font-size: 1rem; opacity: 1; font-weight: 500;">Plant Head</p>
+                    </div>
+
+                    <!-- Main Branches -->
+                    <div class="org-level">
+
+                        <!-- Pseudo-element horizontal line logic handled by container -->
+                        <div
+                            style="position: absolute; top: 0; left: 12%; right: 12%; height: 2px; background: #cbd5e1;">
+                        </div>
+
+                        <!-- Branch 1: NPD & Accounts -->
+                        <div class="branch-group" style="flex: 1;">
+                            <div class="org-node branch-head">
+                                <h4>Surendra Kumar</h4>
+                                <p>NPD</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>Marketing</h4>
+                            </div>
+                            <div class="org-node">
+                                <h4>Sarvesh Kumar</h4>
+                                <p>Accounts</p>
+                            </div>
+                        </div>
+
+                        <!-- Branch 2: Production -->
+                        <div class="branch-group" style="flex: 1;">
+                            <div class="org-node branch-head">
+                                <h4>Ajeet Chobey</h4>
+                                <p>Production</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>Shift Supervisor</h4>
+                            </div>
+                            <div class="org-node">
+                                <h4>50 Operators</h4>
+                            </div>
+                        </div>
+
+                        <!-- Branch 3: Quality -->
+                        <div class="branch-group" style="flex: 1;">
+                            <div class="org-node branch-head">
+                                <h4>Avid Khan</h4>
+                                <p>Quality System, Customer Support, NPD</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>Anil Kumar</h4>
+                                <p>In process, Std. Room, Final Inspection</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>6 Inspectors</h4>
+                                <p>& 14 Visual Inspector</p>
+                            </div>
+                        </div>
+
+                        <!-- Branch 4: Maintenance & Store -->
+                        <div class="branch-group" style="flex: 1;">
+                            <div class="org-node branch-head">
+                                <h4>Ram Nath</h4>
+                                <p>Maintenance</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>Gaurav</h4>
+                                <p>Store</p>
+                            </div>
+                            <div class="org-node">
+                                <h4>Purchase</h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components/Header.js"></script>
+    <script src="js/components/Footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

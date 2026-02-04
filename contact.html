@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Naptech Precision Engineering</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-md" style="background-color: var(--primary-color); color: var(--white); text-align: center;">
+            <div class="container">
+                <h1 style="color: var(--white); margin-bottom: 0.5rem;">Contact Us</h1>
+                <p style="opacity: 0.9;">Get in touch for quotes, inquiries, or support</p>
+            </div>
+        </section>
+
+        <section class="py-lg fade-in">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <!-- Contact Info & Address -->
+                    <div>
+                        <h2 style="margin-bottom: 1.5rem;">Get In Touch</h2>
+
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: var(--primary-light); margin-bottom: 0.5rem;">Address</h4>
+                            <p style="color: var(--text-muted); line-height: 1.8;">
+                                Plot No. 17/1, Basai Industrial Area,<br>
+                                Basai, Gurgaon – 122001,<br>
+                                Haryana, India
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: var(--primary-light); margin-bottom: 0.5rem;">Contact Information</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">
+                                <strong>Email:</strong> <a href="mailto:info@naptech.com"
+                                    style="color: var(--primary-color);">info@naptech.com</a>
+                            </p>
+                            <p style="color: var(--text-muted);">
+                                <strong>Phone:</strong> +91 123 456 7890
+                            </p>
+                        </div>
+
+                        <!-- Map Embed Placeholder -->
+                        <!-- Map Embed -->
+                        <div
+                            style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
+                            <iframe width="100%" height="100%" frameborder="0" style="border:0"
+                                src="https://maps.google.com/maps?q=Naptech+Precision+Engineering,+Basai+Industrial+Area,+Gurgaon&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="https://maps.app.goo.gl/nz9mfJ3cmEQaBCCi7" target="_blank" class="btn btn-primary"
+                            style="width: 100%;">
+                            <img src="assets/icons/arrow-right.svg" alt=""
+                                style="width: 20px; height: 20px; margin-right: 8px; filter: brightness(0) invert(1);">
+                            View on Google Maps
+                        </a>
+                    </div>
+
+                    <!-- Inquiry Form -->
+                    <div
+                        style="background-color: var(--background-light); padding: 2.5rem; border-radius: 8px; box-shadow: var(--shadow-sm);">
+                        <h3 style="margin-bottom: 1.5rem;">Send us a Format Inquiry</h3>
+                        <form id="contact-form">
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full
+                                    Name</label>
+                                <input type="text" id="name" name="name" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-family: inherit;">
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="company"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Company
+                                    Name</label>
+                                <input type="text" id="company" name="company" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-family: inherit;">
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="email"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email
+                                    Address</label>
+                                <input type="email" id="email" name="email" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-family: inherit;">
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="message"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-family: inherit;"></textarea>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <label for="drawing"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Upload Drawing
+                                    (Optional)</label>
+                                <input type="file" id="drawing" name="drawing" style="font-size: 0.9rem;">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components/Header.js"></script>
+    <script src="js/components/Footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

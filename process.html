@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Flow - Naptech Precision Engineering</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-circle {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Connector Line (Desktop Only) */
+        @media (min-width: 900px) {
+            .process-steps::before {
+                content: '';
+                position: absolute;
+                top: 40px;
+                left: 50px;
+                right: 50px;
+                height: 3px;
+                background-color: #cbd5e1;
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-md" style="background-color: var(--primary-color); color: var(--white); text-align: center;">
+            <div class="container">
+                <h1 style="color: var(--white); margin-bottom: 0.5rem;">Process Flow</h1>
+                <p style="opacity: 0.9;">From drawing to delivery, excellence at every step</p>
+            </div>
+        </section>
+
+        <!-- Process Visualization -->
+        <section class="py-lg fade-in">
+            <div class="container">
+                <div class="process-steps">
+
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-circle">1</div>
+                        <h4 style="margin-bottom: 0.5rem;">Review Drawings</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Analyze customer specifications and requirements.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="step-circle">2</div>
+                        <h4 style="margin-bottom: 0.5rem;">Process Order</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Plan production schedule and material procurement.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-circle">3</div>
+                        <h4 style="margin-bottom: 0.5rem;">Precision Machining</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Milling, turning, and shaping components.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="step-circle">4</div>
+                        <h4 style="margin-bottom: 0.5rem;">In-Process QA</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Continuous checks during manufacturing.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="process-step">
+                        <div class="step-circle">5</div>
+                        <h4 style="margin-bottom: 0.5rem;">Final Inspection</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Rigorous testing before dispatch.
+                        </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="process-step">
+                        <div class="step-circle">6</div>
+                        <h4 style="margin-bottom: 0.5rem;">Shipment</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Secure packaging and timely delivery.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components/Header.js"></script>
+    <script src="js/components/Footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
