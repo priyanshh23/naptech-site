@@ -32,7 +32,7 @@ export const CONTACT = {
     email: 'naptechprecision@gmail.com',
     mapLink: 'https://maps.app.goo.gl/eNPXtnBbrHjryjP99',
     social: {
-        linkedin: '#', // Placeholder - User to update
+        linkedin: 'https://www.linkedin.com/in/naptech-precision-b1aba43ab',
     },
 };
 
