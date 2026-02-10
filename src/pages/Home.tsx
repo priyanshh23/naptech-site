@@ -53,7 +53,7 @@ const Home = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div>
-                            <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight text-white">
+                            <h1 className="text-4xl md:text-7xl font-bold mb-4 leading-tight text-white">
                                 Precision CNC<br />
                                 Machining <span className="text-primary">Excellence</span><br />
                                 Since 2014
@@ -78,13 +78,13 @@ const Home = () => {
                         </div>
 
                         {/* Right - Hero Image */}
-                        <div className="relative hidden lg:block">
+                        <div className="relative mt-12 lg:mt-0">
                             <div className="absolute -inset-6 bg-gradient-to-r from-primary/50 to-emerald-500/50 rounded-3xl blur-2xl opacity-40"></div>
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/10">
                                 <img
                                     src="/hero-factory.jpg"
                                     alt="Naptech Precision Engineering Manufacturing Floor"
-                                    className="w-full h-[400px] object-cover"
+                                    className="w-full h-64 md:h-[400px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
                             </div>

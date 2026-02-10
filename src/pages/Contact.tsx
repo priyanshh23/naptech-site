@@ -19,6 +19,9 @@ const Contact = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [fileNames, setFileNames] = useState<string[]>([]);
 
+    // Vercel Serverless Function Limit (4.5MB Payload) -> Safe limit 4MB for files
+    const MAX_TOTAL_SIZE = 4 * 1024 * 1024; // 4MB
+
     useEffect(() => {
         if (hash) {
             const element = document.getElementById(hash.replace('#', ''));
@@ -33,6 +36,23 @@ const Contact = () => {
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
             const files = Array.from(e.target.files);
+
+            // Check Total Size
+            const totalSize = files.reduce((acc, file) => acc + file.size, 0);
+            if (totalSize > MAX_TOTAL_SIZE) {
+                setErrorMessage(`Total file size exceeds 4MB. Your files are ${(totalSize / (1024 * 1024)).toFixed(2)}MB.`);
+                setStatus('error');
+                // Clear the input
+                e.target.value = '';
+                return;
+            }
+
+            // Clear previous errors if size is okay
+            if (status === 'error') {
+                setStatus('idle');
+                setErrorMessage('');
+            }
+
             const names = files.map(f => f.name);
             setFileNames(names);
 
@@ -149,7 +169,7 @@ const Contact = () => {
 
                         {/* Left Column - Form */}
                         <div className="lg:col-span-3">
-                            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-10">
+                            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10">
                                 <div className="flex items-center gap-3 mb-2">
                                     <span className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-lg">📝</span>
                                     <h2 className="text-2xl font-bold text-slate-800">Request a Quote</h2>
