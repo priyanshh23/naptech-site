@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Clients = () => {
     const clients = [
         'Toyota', 'Maruti Suzuki', 'Hero MotoCorp', 'Munjal Kiriu',

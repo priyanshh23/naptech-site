@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CLIENTS } from '../../assets/companyData';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 

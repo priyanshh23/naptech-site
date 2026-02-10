@@ -1,4 +1,3 @@
-import React from 'react';
 import { PROCESS_CHAIN } from '../assets/companyData';
 
 const ProcessChain = () => {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const machines = [
     { type: 'Vertical Machining Centers (VMC)', brand: 'Doosan / Ace', specs: '10 Units', note: 'Various bed sizes available' },
     { type: 'CNC Turning Centers', brand: 'Mazak / Ace', specs: '15 Units', note: '' },
