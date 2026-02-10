@@ -71,7 +71,7 @@ export const ProductShowcase = ({
                         >
                             <div className="relative bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
                                 {/* White Background Container - Made Larger */}
-                                <div className="bg-white p-8 flex items-center justify-center min-h-[500px] md:min-h-[600px]">
+                                <div className="bg-white p-4 md:p-8 flex items-center justify-center min-h-[300px] md:min-h-[600px]">
                                     <img
                                         src={currentProduct.image}
                                         alt={currentProduct.name}
@@ -99,8 +99,8 @@ export const ProductShowcase = ({
                                     Product {currentIndex + 1} / {PRODUCTS.length}
                                 </span>
                             </div>
-                            <h3 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">{currentProduct.name}</h3>
-                            <p className="text-slate-600 text-xl leading-relaxed mb-10 border-l-4 border-primary/20 pl-6">{currentProduct.desc}</p>
+                            <h3 className="text-2xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight break-words hyphens-auto">{currentProduct.name}</h3>
+                            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 border-l-4 border-primary/20 pl-6">{currentProduct.desc}</p>
 
                             {/* Navigation Buttons */}
                             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
