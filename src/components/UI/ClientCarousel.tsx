@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
 import { CLIENTS } from '../../assets/companyData';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ClientCarouselProps {
     title?: string;
@@ -9,50 +7,6 @@ interface ClientCarouselProps {
 }
 
 export const ClientCarousel = ({ title = "Trusted By Industry Leaders", subtitle, showTitleBox = false }: ClientCarouselProps) => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [isPaused, setIsPaused] = useState(false);
-    const scrollSpeed = 0.5; // Pixels per frame
-    const manualScrollAmount = 300; // Pixels to scroll on button click
-
-    // Auto-scroll logic
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
-
-        let animationFrameId: number;
-
-        const animate = () => {
-            if (!isPaused && scrollContainer) {
-                if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-                    // Reset to start seamlessly when reaching halfway (since content is duplicated)
-                    scrollContainer.scrollLeft = 0;
-                } else {
-                    scrollContainer.scrollLeft += scrollSpeed;
-                }
-            }
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animationFrameId = requestAnimationFrame(animate);
-
-        return () => cancelAnimationFrame(animationFrameId);
-    }, [isPaused]);
-
-    const handlePrev = () => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: -manualScrollAmount, behavior: 'smooth' });
-        }
-    };
-
-    const handleNext = () => {
-        if (scrollRef.current) {
-            if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2 - manualScrollAmount) {
-                // If near end, reset first to allow seamless next
-                scrollRef.current.scrollLeft = 0;
-            }
-            scrollRef.current.scrollBy({ left: manualScrollAmount, behavior: 'smooth' });
-        }
-    };
 
     return (
         <section className="py-12 bg-white overflow-hidden relative group">
