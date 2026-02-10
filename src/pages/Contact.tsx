@@ -19,8 +19,9 @@ const Contact = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [fileNames, setFileNames] = useState<string[]>([]);
 
-    // Vercel Serverless Function Limit (4.5MB Payload) -> Safe limit 4MB for files
-    const MAX_TOTAL_SIZE = 4 * 1024 * 1024; // 4MB
+    // Vercel Serverless Function Limit (4.5MB Payload)
+    // Base64 encoding adds ~33% overhead. 3MB file -> ~4MB payload + JSON data -> Safe.
+    const MAX_TOTAL_SIZE = 3 * 1024 * 1024; // 3MB
 
     useEffect(() => {
         if (hash) {
@@ -40,7 +41,7 @@ const Contact = () => {
             // Check Total Size
             const totalSize = files.reduce((acc, file) => acc + file.size, 0);
             if (totalSize > MAX_TOTAL_SIZE) {
-                setErrorMessage(`Total file size exceeds 4MB. Your files are ${(totalSize / (1024 * 1024)).toFixed(2)}MB.`);
+                setErrorMessage(`Total file size exceeds 3MB. Your files are ${(totalSize / (1024 * 1024)).toFixed(2)}MB. Please compress specific files or send fewer files.`);
                 setStatus('error');
                 // Clear the input
                 e.target.value = '';
