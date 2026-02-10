@@ -1,17 +1,25 @@
-const resend = new Resend(process.env.RESEND_API_KEY);
+const { Resend } = await import('resend');
 
-const { name, company, email, phone, message, attachments } = req.body;
+export default async function handler(req, res) {
+    if (!process.env.RESEND_API_KEY) {
+        console.error('Missing RESEND_API_KEY environment variable');
+        return res.status(500).json({ error: 'Server Configuration Error: Missing RESEND_API_KEY' });
+    }
 
-if (!email || !name) {
-    return res.status(400).json({ error: 'Name and Email are required' });
-}
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-try {
-    const data = await resend.emails.send({
-        from: 'Naptech Website <onboarding@resend.dev>', // Update this once domain is verified
-        to: ['naptechprecision@gmail.com'],
-        subject: `New Quote Request from ${name}`,
-        html: `
+    const { name, company, email, phone, message, attachments } = req.body;
+
+    if (!email || !name) {
+        return res.status(400).json({ error: 'Name and Email are required' });
+    }
+
+    try {
+        const data = await resend.emails.send({
+            from: 'Naptech Website <onboarding@resend.dev>', // Update this once domain is verified
+            to: ['naptechprecision@gmail.com'],
+            subject: `New Quote Request from ${name}`,
+            html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
                     <h2 style="color: #0f172a;">New Quote Request</h2>
                     <p style="color: #64748b;">You have received a new inquiry from the website contact form.</p>
@@ -37,17 +45,17 @@ try {
                     </p>
                 </div>
             `,
-        attachments: attachments || []
-    });
+            attachments: attachments || []
+        });
 
-    if (data.error) {
-        console.error('Resend Error:', data.error);
-        return res.status(500).json({ error: data.error.message });
+        if (data.error) {
+            console.error('Resend Error:', data.error);
+            return res.status(500).json({ error: data.error.message });
+        }
+
+        return res.status(200).json({ message: 'Email sent successfully', id: data.data?.id });
+    } catch (error) {
+        console.error('Server Error:', error);
+        return res.status(500).json({ error: 'Failed to send email: ' + error.message });
     }
-
-    return res.status(200).json({ message: 'Email sent successfully', id: data.data?.id });
-} catch (error) {
-    console.error('Server Error:', error);
-    return res.status(500).json({ error: 'Failed to send email: ' + error.message });
-}
 }
