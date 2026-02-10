@@ -106,7 +106,15 @@ const Contact = () => {
                 body: JSON.stringify(formData),
             });
 
-            const data = await response.json();
+            let data;
+            const responseText = await response.text();
+
+            try {
+                data = JSON.parse(responseText);
+            } catch (e) {
+                // If parsing fails, it's likely a Vercel runtime error (text)
+                throw new Error(`Server Error: ${responseText.slice(0, 100)}...`);
+            }
 
             if (!response.ok) {
                 throw new Error(data.error || 'Failed to send email');
