@@ -71,44 +71,23 @@ export const ClientCarousel = ({ title = "Trusted By Industry Leaders", subtitle
             </div>
 
             {/* Carousel Container */}
-            <div
-                className="relative"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                onTouchStart={() => setIsPaused(true)}
-                onTouchEnd={() => setIsPaused(false)}
-            >
+            <div className="relative w-full overflow-hidden">
                 {/* Gradient overlays */}
                 <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                {/* Navigation Buttons - Visible on Hover */}
-                <button
-                    onClick={handlePrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg border border-slate-200 hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300"
-                    aria-label="Previous Clients"
-                >
-                    <ChevronLeft size={24} />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg border border-slate-200 hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300"
-                    aria-label="Next Clients"
-                >
-                    <ChevronRight size={24} />
-                </button>
-
-                {/* Scrolling Track */}
+                {/* Scrolling Track - CSS Animation */}
                 <div
-                    ref={scrollRef}
-                    className="flex overflow-x-hidden no-scrollbar"
-                    style={{ scrollBehavior: 'auto' }} // Disable CSS smooth scroll for js animation, enable manually for buttons
+                    className="flex w-max animate-marquee hover:animate-marquee-pause"
+                    // Add touch listeners to pause on mobile touch
+                    onTouchStart={(e) => e.currentTarget.classList.add('animate-marquee-pause')}
+                    onTouchEnd={(e) => e.currentTarget.classList.remove('animate-marquee-pause')}
                 >
-                    {/* Triple the content to ensure seamless infinite scroll even with manual navigation */}
-                    {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, i) => (
+                    {/* Double the content to ensure seamless loop */}
+                    {[...CLIENTS, ...CLIENTS].map((client, i) => (
                         <div
                             key={i}
-                            className="flex-shrink-0 mx-8 flex items-center justify-center p-4 min-w-[120px]"
+                            className="flex-shrink-0 mx-8 flex items-center justify-center p-4 w-[150px]"
                         >
                             {/* @ts-ignore */}
                             <img
