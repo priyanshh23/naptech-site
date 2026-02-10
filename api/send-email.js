@@ -21,6 +21,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+    if (!process.env.RESEND_API_KEY) {
+        console.error('Missing RESEND_API_KEY environment variable');
+        return res.status(500).json({ error: 'Server Configuration Error: Missing RESEND_API_KEY' });
+    }
+
     const { name, company, email, phone, message, attachments } = req.body;
 
     if (!email || !name) {
@@ -69,6 +74,6 @@ export default async function handler(req, res) {
         return res.status(200).json({ message: 'Email sent successfully', id: data.data?.id });
     } catch (error) {
         console.error('Server Error:', error);
-        return res.status(500).json({ error: 'Failed to send email' });
+        return res.status(500).json({ error: 'Failed to send email: ' + error.message });
     }
 }
