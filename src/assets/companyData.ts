@@ -211,12 +211,13 @@ export const MACHINES = {
     cnc: [
         { make: 'ACE', quantity: 4 },
         { make: 'MacPower', quantity: 2 },
-        { make: 'BMT', quantity: 2 },
+        { make: 'PMT', quantity: 2 },
         { make: 'Mori Seiki', quantity: 1 },
         { make: 'Jaeoo', quantity: 4 },
         { make: 'LMW', quantity: 1 },
         { make: 'DMTG', quantity: 1 },
         { make: 'Concept', quantity: 2 },
+        { make: 'Lokesh', quantity: 8 },
     ],
     spm: [
         { name: 'Sand Blasting Machine' },

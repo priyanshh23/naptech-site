@@ -1,6 +1,6 @@
 const machines = [
     { type: 'Vertical Machining Centers (VMC)', brand: 'Doosan / Ace', specs: '10 Units', note: 'Various bed sizes available' },
-    { type: 'CNC Turning Centers', brand: 'Mazak / Ace', specs: '15 Units', note: '' },
+    { type: 'CNC Turning Centers', brand: 'Mazak / Ace / Lokesh', specs: '25 Units (8 Lokesh)', note: '' },
     { type: 'Sand Blasting Machine', brand: 'Custom', specs: '2 Units', note: '' },
     { type: 'Special Purpose Machines (SPM)', brand: '-', specs: '5 Units', note: '' },
     { type: 'Conventional Machines', brand: '-', specs: 'Drills, Tapping', note: 'Broaching, Engraving' },
