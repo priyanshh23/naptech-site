@@ -138,7 +138,7 @@ const Home = () => {
 
                     {/* Desktop Process Cards */}
                     <div className="relative">
-                        <div className="absolute top-8 left-0 w-full h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 rounded-full z-0 transform -translate-y-1/2"></div>
+                        <div className="absolute top-8 left-0 w-full h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 rounded-full z-0 transform -translate-y-1/2 hidden md:block"></div>
                         <div className="hidden md:grid grid-cols-6 gap-4 mb-12 relative z-10">
                             {PROCESS_CHAIN.map((step, i) => (
                                 <div key={i} className="group text-center">
